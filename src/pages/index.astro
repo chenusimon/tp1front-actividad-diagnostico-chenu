@@ -1,0 +1,193 @@
+---
+import '../styles/style.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Tomatoes</title>
+</head>
+<body>
+    <div class="backhead"></div>
+    <div class="head">
+        <p class="textito">Green Tomatoes</p>
+    </div>
+    <div class="middle">
+        <div class="fila">
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/EPI_TPM_poster.webp" alt="poster star wars">
+                <p class="titulo">Star-Wars I</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/Attack-Clones-Poster.webp" alt="poster star wars">
+                <p class="titulo">Star-Wars II</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/star%20wars%203.jpg" alt="poster star wars">
+                <p class="titulo">Star-Wars III</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/star%20wars%204.jpg" alt="poster star wars">
+                <p class="titulo">Star-Wars IV</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/star%20wars%205.jpg" alt="poster star wars">
+                <p class="titulo">Star-Wars V</p>
+                </button>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/ReturnOfTheJediPoster1983.webp" alt="poster star wars">
+                <p class="titulo">Star-Wars VI</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/El_Despertar_de_la_Fuerza_Poster.webp" alt="poster star wars">
+                <p class="titulo">Star-Wars VII</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/Los%3FltimosJediPosterFinal.webp" alt="poster Star Wars">
+                <p class="titulo">Star-Wars VIII</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/MV5BMmYwMGZlYzQtOTI0YS00ZDlmLWFiOGItN2RmMWE4OTY2Y2E4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="poster star wars">
+                <p class="titulo">Star-Wars IX</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp1.jpg" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 1</p>
+                </button>
+            </div>
+        </div>
+        <div class="fila oculto" id="fila3">
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp2.webp" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 2</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp3.jpg" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 3</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp4.jpg" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 4</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp5.jpg" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 5</p>
+                </button>
+            </div>
+            <div class="columna">
+                <button class="pelicula">
+                <img src="/hp6.jpg" alt="poster harry potter">
+                <p class="titulo"> Harry Potter 6</p>
+                </button>
+            </div>
+        </div>
+        <button id="verMas" class="flecha">▼</button>
+        <button id="verMenos" class="flecha oculto">▲</button>
+    </div>
+    <div class="bottom">
+        <p class="textito2">Elegi una pelicula</p>
+    </div>
+    <div class="overlay oculto" id="modal">
+        <div class="cartel">
+            <button id="cerrar" class="cerrar">X</button>
+            <div class="cartelContenido">
+                <img id="modalImg" src="" alt="poster grande">
+                <div class="cartelTexto">
+                    <p class="modalReview" id="modalReview"></p>
+                    <p class="modalScore" id="modalScore"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script>
+    const botones = document.querySelectorAll(".pelicula");
+
+    const reviews = [
+        "La critica coincide en que el arranque de la trilogia precuela se apoya demasiado en explicaciones de la trama y en personajes poco desarrollados, aunque visualmente es una entrega bastante vistosa para su epoca.",
+        "Los criticos destacan que hay mas accion que en la anterior, pero la pelicula se sigue viendo perjudicada por tramos de guion muy cargados y por personajes que no terminan de crecer del todo.",
+        "Segun la critica, George Lucas logra cerrar la trilogia precuela de una forma emocionante y con momentos bastante conmovedores, aunque todavia se notan algunos altibajos en el ritmo.",
+        "Es considerada por la critica como un comienzo ambicioso y expansivo para la ciencia ficcion en el cine, que cambio para siempre la forma de hacer peliculas de gran escala.",
+        "Mas oscura y compleja que la primera, la critica coincide en que supera las expectativas del publico y lleva a la saga a un nivel emocional bastante mas alto.",
+        "Aunque no llega a la altura cinematografica de sus predecesoras, segun la critica sigue siendo una aventura entretenida y un cierre mas que digno para la trilogia clasica.",
+        "La critica remarca que combina caras conocidas con personajes nuevos, logrando recuperar el espiritu original de la saga con una energia bastante renovada.",
+        "Los criticos senalan que honra el legado de la saga mientras suma giros sorprendentes y le mete mucha carga emocional a la accion.",
+        "La critica coincide en que le falta bastante imaginacion a la hora de cerrar la saga, aunque cumple con la devocion que los fans esperaban de un final.",
+        "La critica destaca que adapta el material original de forma bastante fiel, condensando una novela muy cargada en una aventura magica entretenida de principio a fin.",
+        "Segun la critica, resulta mas oscura y dinamica que la primera entrega, ademas de ampliar y mejorar bastante el universo que se habia presentado antes.",
+        "Bajo la direccion de Alfonso Cuaron, la critica coincide en que la pelicula logra un equilibrio muy solido entre el lado tecnico y una narrativa bastante mas compleja.",
+        "Los criticos notan que los personajes principales van madurando y que los efectos visuales y las actuaciones llevan a la saga a su entrega mas compleja hasta ese momento.",
+        "La critica valora que logra condensar el libro mas largo de la saga en la pelicula mas corta, sin perder ritmo ni entretenimiento en el camino.",
+        "Segun la critica es una entrega oscura, entretenida y con algunos momentos de humor, ademas de estar muy lograda visualmente y ser bastante satisfactoria a nivel emocional."
+    ];
+
+    const puntajes = [3, 3, 4, 5, 5, 4, 5, 5, 3, 4, 4, 5, 4, 4, 4];
+
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalReview = document.getElementById("modalReview");
+    const modalScore = document.getElementById("modalScore");
+    const cerrar = document.getElementById("cerrar");
+
+    for (let i = 0; i < botones.length; i++) {
+        botones[i].addEventListener("click", function () {
+            const img = botones[i].querySelector("img").getAttribute("src");
+            modalImg.setAttribute("src", img);
+            modalReview.textContent = reviews[i];
+            modalScore.textContent = "Puntaje: " + puntajes[i] + "/5";
+            modal.classList.remove("oculto");
+        });
+    }
+
+    cerrar.addEventListener("click", function () {
+        modal.classList.add("oculto");
+    });
+
+    const verMas = document.getElementById("verMas");
+    const verMenos = document.getElementById("verMenos");
+    const fila3 = document.getElementById("fila3");
+
+    verMas.addEventListener("click", function () {
+        fila3.classList.remove("oculto");
+        verMas.classList.add("oculto");
+        verMenos.classList.remove("oculto");
+    });
+
+    verMenos.addEventListener("click", function () {
+        fila3.classList.add("oculto");
+        verMenos.classList.add("oculto");
+        verMas.classList.remove("oculto");
+    });
+	</script>
+</body>
+</html>
+

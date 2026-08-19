@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+@import 'tailwindcss';
+body{
+    margin: 0px;
+    scrollbar-width: none;
+    overflow: auto;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+.backhead{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(215, 232, 210);
+}
+
+.head{
+    position: sticky;
+    top: 0;
+    background-color: rgb(215, 232, 210);
+    height: 10vh;
+    width: 100vw;
+}
+.middle{
+    background-color:rgb(250, 248, 242);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 220vh;
+}
+.bottom{
+    height: 20vh;
+    width: 100vw;
+    background-color: rgb(94, 130, 90);
+}
+.fila{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.columna{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 17%;
+    border-radius: 5vh;
+    box-shadow: 0px 4px 10px rgba(94, 130, 90, 0.35);
+}
+img{
+    width: 80%;
+    display: flex;
+    justify-self: center;
+    margin-top: 8%;
+}
+.titulo{
+    display: flex;
+    justify-self: center;
+    color: rgb(60, 80, 58);
+    font-size: 2.6vh;
+    text-align: center;
+    padding: 0px 1vh;
+}
+.pelicula{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+.textito{
+    font-size: 5vh;
+    margin: 0px;
+    padding-top: 2vh;
+    text-align: center;
+    color: rgb(60, 80, 58);
+    font-family: 'Baloo 2', sans-serif;
+}
+.textito2{
+    font-size: 3vh;
+    margin: 0px;
+    padding-top: 7vh;
+    text-align: center;
+    color: white;
+}
+.pelicula:hover{
+    cursor: pointer;
+}
+.flecha{
+    display: block;
+    margin: 2vh auto;
+    font-size: 3vh;
+    background-color: rgb(215, 232, 210);
+    border-radius: 50%;
+    width: 6vh;
+    height: 6vh;
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0px 4px 10px rgba(94, 130, 90, 0.35);
+    color: rgb(60, 80, 58);
+}
+.flecha:hover{
+    cursor: pointer;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(40, 55, 40, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartel{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 70vw;
+    max-height: 85vh;
+    overflow: auto;
+    border-radius: 2vh;
+    padding: 4vh;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+.cartelContenido{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4vh;
+}
+.cartelContenido img{
+    width: 35%;
+    margin-top: 0px;
+    border-radius: 1.5vh;
+}
+.cartelTexto{
+    text-align: left;
+}
+.cerrar{
+    position: absolute;
+    top: 1vh;
+    right: 1.5vh;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    font-size: 4.5vh;
+    color: rgb(60, 80, 58);
+}
+.cerrar:hover{
+    cursor: pointer;
+}
+.modalReview{
+    font-size: 2.8vh;
+    color: rgb(60, 80, 58);
+}
+.modalScore{
+    font-size: 3vh;
+    font-weight: bold;
+    color: rgb(94, 130, 90);
+}
+.oculto{
+    display: none;
+}
